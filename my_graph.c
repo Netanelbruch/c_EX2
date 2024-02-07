@@ -5,7 +5,7 @@ int main(){
 char x;
 int i=0,j=0;
 
-
+int N = 10;
 
 int matrix[N][N];
 
