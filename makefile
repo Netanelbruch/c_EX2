@@ -1,17 +1,17 @@
-CC = gcc 
+CC = gcc
 AR = ar
 FLAGS= -Wall -g
 
-OBJEKTS_MAIN=main.c
-OBJEKTS_MAINO=main.o
+OBJEKTS_MAIN=my_graph.c
+OBJEKTS_MAINO=my_graph.o
 OBJEKTS_MATO=my_mat.o
 OBJEKTS_MATC=my_mat.c
 
 
-all: connections 
+all: my_graph
 
 connections: $(OBJEKTS_MAINO) libmy_mat.a
-	$(CC) -o connections $(OBJEKTS_MAINO) libmy_mat.a
+	$(CC) -o my_graph $(OBJEKTS_MAINO) libmy_mat.a
 
 libmy_mat.a: $(OBJEKTS_MATO)
 	$(AR) -rcs libmy_mat.a $(OBJEKTS_MATO)
@@ -26,4 +26,4 @@ my_math.o: $(OBJEKTS_MATC) my_mat.h
 .PHONY: clean all
 
 clean:
-	rm -f *.o connections *.a
+	rm -f *.o my_graph *.a
