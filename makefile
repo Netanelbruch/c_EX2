@@ -8,18 +8,18 @@ OBJEKTS_MATO=my_mat.o
 OBJEKTS_MATC=my_mat.c
 
 
-all: my_graph $(OBJEKTS_MAINO) $(BJEKTS_MATO)
+all: my_graph
 
-my_graph: $(OBJEKTS_MAINO) libmy_mat.a
+connections: $(OBJEKTS_MAINO) libmy_mat.a
 	$(CC) -o my_graph $(OBJEKTS_MAINO) libmy_mat.a
 
 libmy_mat.a: $(OBJEKTS_MATO)
 	$(AR) -rcs libmy_mat.a $(OBJEKTS_MATO)
 
-$(OBJEKTS_MAINO): $(OBJEKTS_MAIN) my_mat.h
+main.o: $(OBJEKTS_MAIN) my_mat.h
 	$(CC) $(FLAGS) -c $(OBJEKTS_MAIN) 
 
-$(BJEKTS_MATO): $(OBJEKTS_MATC) my_mat.h
+my_math.o: $(OBJEKTS_MATC) my_mat.h
 	$(CC) $(FLAGS) -c $(OBJEKTS_MATC) 
 
 
