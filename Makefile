@@ -30,5 +30,5 @@ my_Knapsack.o: my_Knapsack.c my_mat.h
 .PHONY: clean all
 
 clean:
-	rm -f *.o my_graph *.a
+	rm -f *.o my_graph *.a my_Knapsack
 
