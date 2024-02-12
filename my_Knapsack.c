@@ -27,7 +27,7 @@ int main()
     int chosenObjects[numberOfObjects];
 
     // Call the knapsack function with user input
-    int totalMaxValue = knapsack( weights, values, chosenObjects);
+    int totalMaxValue = Knapsack( weights, values, chosenObjects);
 
     printf("Total maximum value of chosen objects: %d\n", totalMaxValue);
 

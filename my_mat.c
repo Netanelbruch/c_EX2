@@ -128,7 +128,7 @@ void C(int matrix[N][N], int i, int j)
     
 }
 
-int knapsack( int weights[numberOfObjects], int values[numberOfObjects], int chosenObjects[numberOfObjects])
+int Knapsack( int weights[numberOfObjects], int values[numberOfObjects], int chosenObjects[numberOfObjects])
 {
     int i, currentCapacity;
     int dpTable[numberOfObjects + 1][knapsackCapacity + 1];

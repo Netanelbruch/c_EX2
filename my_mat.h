@@ -10,4 +10,4 @@ void B(int matrix[N][N], int i, int j);
 
 void C(int matrix[N][N], int i, int j);
 
-int knapSack (int weights[numberOfObjects], int values[numberOfObjects] , int selected_bool[numberOfObjects]);
+int Knapsack (int weights[numberOfObjects], int values[numberOfObjects] , int selected_bool[numberOfObjects]);
