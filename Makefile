@@ -2,8 +2,8 @@ CC = gcc
 AR = ar
 FLAGS= -Wall -g
 
-OBJEKTS_MAIN=main.c
-OBJEKTS_MAINO=main.o
+OBJEKTS_MAIN=my_graph.c
+OBJEKTS_MAINO=my_graph.o
 OBJEKTS_MATO=my_mat.o
 OBJEKTS_MATC=my_mat.c
 
