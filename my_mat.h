@@ -11,3 +11,5 @@ void B(int matrix[N][N], int i, int j);
 void C(int matrix[N][N], int i, int j);
 
 int Knapsack (int weights[numberOfObjects], int values[numberOfObjects] , int selected_bool[numberOfObjects]);
+
+void printSelectedItems(char names[][50], int weights[], int values[], int selected_bool[]);

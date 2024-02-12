@@ -128,8 +128,12 @@ void C(int matrix[N][N], int i, int j)
     
 }
 
-int Knapsack( int weights[numberOfObjects], int values[numberOfObjects], int chosenObjects[numberOfObjects])
-{
+
+
+
+
+// Function to solve 0/1 Knapsack using dynamic programming
+int Knapsack(int weights[], int values[], int selected_bool[]) {
     int i, currentCapacity;
     int dpTable[numberOfObjects + 1][knapsackCapacity + 1];
 
@@ -145,28 +149,35 @@ int Knapsack( int weights[numberOfObjects], int values[numberOfObjects], int cho
         }
     }
 
-    // Find the selected items and calculate the total maximum value
+    // Find the selected items and update the selected_bool array
     int maxValue = dpTable[numberOfObjects][knapsackCapacity];
-    printf("Maximum value in the Knapsack: %d\n", maxValue);
-
     currentCapacity = knapsackCapacity;
-    int count = 0;
 
-    // Populate the array of chosen objects
     for (i = numberOfObjects; i > 0 && maxValue > 0; i--) {
         if (maxValue != dpTable[i - 1][currentCapacity]) {
-            chosenObjects[count++] = i - 1;
+            selected_bool[i - 1] = 1; // Set selected_bool to 1 for the chosen object
             maxValue -= values[i - 1];
             currentCapacity -= weights[i - 1];
         }
     }
 
-    // Print the list of chosen objects
-    printf("Selected items:\n");
-    for (i = count - 1; i >= 0; i--) {
-        int index = chosenObjects[i];
-        printf("(Weight: %d kg, Value: %d)\n", weights[index], values[index]);
+    return dpTable[numberOfObjects][knapsackCapacity];
+}
+
+// Function to print the selected items
+void printSelectedItems(char names[][50], int weights[], int values[], int selected_bool[]) {
+    printf("Items that give the maximum profit: [");
+    int firstSelected = 1;
+
+    for (int i = 0; i < 5; i++) {
+        if (selected_bool[i] == 1) {
+            if (!firstSelected) {
+                printf(", ");
+            }
+            printf("%s", names[i]);
+            firstSelected = 0;
+        }
     }
 
-    return dpTable[numberOfObjects][knapsackCapacity];
+    printf("]\n");
 }
