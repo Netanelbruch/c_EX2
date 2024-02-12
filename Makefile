@@ -8,7 +8,10 @@ OBJEKTS_MATO=my_mat.o
 OBJEKTS_MATC=my_mat.c
 
 
-all: my_graph
+all: my_graph Knapsack
+
+Knapsack: my_knapsack.o libmy_mat.a
+	$(CC) -o Knapsack my_knapsack.o libmy_mat.a
 
 my_graph: $(OBJEKTS_MAINO) libmy_mat.a
 	$(CC) -o my_graph $(OBJEKTS_MAINO) libmy_mat.a
@@ -22,7 +25,8 @@ main.o: $(OBJEKTS_MAIN) my_mat.h
 my_math.o: $(OBJEKTS_MATC) my_mat.h
 	$(CC) $(FLAGS) -c $(OBJEKTS_MATC) 
 
-
+my_knapsack.o: my_knapsack.c my_mat.h
+	$(CC) $(FLAGS) -c my_knapsack.c 
 .PHONY: clean all
 
 clean:
