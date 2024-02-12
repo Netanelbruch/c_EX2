@@ -166,18 +166,18 @@ int Knapsack(int weights[], int values[], int selected_bool[]) {
 
 // Function to print the selected items
 void printSelectedItems(char names[][50], int weights[], int values[], int selected_bool[]) {
-    printf("Items that give the maximum profit: [");
+    printf("Selected items: ");
     int firstSelected = 1;
 
     for (int i = 0; i < 5; i++) {
         if (selected_bool[i] == 1) {
             if (!firstSelected) {
-                printf(", ");
+                printf(" ");
             }
             printf("%s", names[i]);
             firstSelected = 0;
         }
     }
 
-    printf("]\n");
+    
 }
